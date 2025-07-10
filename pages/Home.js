@@ -1,0 +1,170 @@
+"use client";
+
+import { useState } from 'react'
+import styles from '@/styles/HeroSection.module.css'
+import { motion } from "framer-motion"
+import Link from 'next/link';
+import Image from 'next/image';
+import OurWorkAnimation from '@/app/components/OurWork';
+import CardStackAnimation from '@/app/components/CardStackAnimation';
+
+const Home = () => {
+    const [hovered, setHovered] = useState('left'); // Initialize with 'left' active
+
+    return (
+        <>
+            <section className={styles.heroContainer}>
+                <video autoPlay loop muted playsInline className={styles.videoBackground}>
+                    <source src="/V1-Draft.mp4" type="video/mp4" />
+                </video>
+
+                {/* Gradient overlay at bottom */}
+                <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-t from-white to-transparent z-10"></div>
+
+                <motion.div className='absolute top-50 z-20'
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                    <Image
+                        src={'/logo-1.png'}
+                        alt={''}
+                        width={500}
+                        height={500}
+                        unoptimized
+                        quality={100}
+                    />
+                </motion.div>
+
+                <div className="pb-[150px] text-gray-900 text-3xl w-[800px] text-center relative z-20">
+                    <p>Your independent creative agency. We create strategic brands, campaigns and tech.</p>
+                </div>
+            </section>
+
+
+            <section className="relative h-[500px]">
+                <div className='flex flex-col gap-5 pb-[60px] px-5 lg:flex-row'>
+                    <motion.div
+                        onMouseEnter={() => setHovered('right')}
+                        animate={{
+                            flex: hovered === 'right' ? 0.7 : hovered === 'left' ? 0.415 : 0.5,
+                        }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden rounded-2xl flex items-center"
+                    >
+                        <Link href="/projects">
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="rounded-2xl w-full h-full object-cover"
+                            >
+                                <source src="/YC-Reel-LR.mp4" type="video/mp4" />
+                            </video>
+                        </Link>
+                    </motion.div>
+
+                    <motion.div
+                        onMouseEnter={() => setHovered('left')}
+                        animate={{
+                            flex: hovered === 'left' ? 0.7 : hovered === 'right' ? 0.418 : 0.5,
+                        }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden rounded-2xl items-center"
+                    >
+                        <Link href="/projects">
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="rounded-2xl w-full h-full object-cover"
+                            >
+                                <source src="/slowreel_wip_13jul10am_1.mp4.mp4" type="video/mp4" />
+                            </video>
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className='Our_Work hidden lg:block'>
+                <OurWorkAnimation />
+                <div className='relative'>
+                    <div className='our_logos -z-1'>
+                        <div className='absolute left-[20%] top-0 rotate-[-6deg]'>
+                            <div className='bg-[#d0ed97] py-5 px-4 max-w-[350px] rounded-full flex w-100 items-center justify-center'>
+                                <Image
+                                    src={'/LOGO-AHV-1.png'}
+                                    width={250}
+                                    height={100}
+                                    quality={100}
+                                    alt=''
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                        <div className='absolute left-[30%] top-[300px] rotate-[8deg]'>
+                            <div className='bg-[#bbbbd3] py-5 px-4 max-w-[350px] rounded-full flex w-100 items-center justify-center'>
+                                <Image
+                                    src={'/LOGO-AHV-1.png'}
+                                    width={250}
+                                    height={100}
+                                    quality={100}
+                                    alt=''
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                        <div className='absolute left-[60%] top-[400px] rotate-[-4deg]'>
+                            <div className='bg-[#da7e57] py-5 px-4 max-w-[350px] rounded-full flex w-100 items-center justify-center'>
+                                <Image
+                                    src={'/LOGO-AHV-1.png'}
+                                    width={250}
+                                    height={100}
+                                    quality={100}
+                                    alt=''
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='our_logos z-10'>
+                        <div className='absolute left-[35%] top-[600px] rotate-[-6deg]'>
+                            <div className='bg-[#84a7e8] py-5 px-4 max-w-[350px] rounded-full flex w-100 items-center justify-center'>
+                                <Image
+                                    src={'/LOGO-AHV-1.png'}
+                                    width={250}
+                                    height={100}
+                                    quality={100}
+                                    alt=''
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                        <div className='absolute left-[55%] bottom-0 rotate-[8deg]'>
+                            <div className='bg-[#d0d9d8] py-5 px-4 max-w-[350px] rounded-full flex w-100 items-center justify-center'>
+                                <Image
+                                    src={'/LOGO-AHV-1.png'}
+                                    width={250}
+                                    height={100}
+                                    quality={100}
+                                    alt=''
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section className='Our_Work_mob block lg:hidden'>
+                <CardStackAnimation />
+            </section>
+        </>
+    )
+}
+
+export default Home

@@ -1,8 +1,23 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'Satisfy';
+  src: url('/fonts/Satisfy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer utilities {
+  .font-satisfy {
+    font-family: 'Satisfy', cursive;
+  }
+}
+
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --grey-light: #e8e8e6;
 }
 
 @theme inline {
@@ -23,4 +38,48 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.gridContainer {
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px;
+}
+
+.lineBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.lineBackground:before {
+    content: "";
+    height: 100%;
+    grid-area: 1 / 1 / 2 / 4;
+    border-right: 1px solid var(--grey-light);
+    margin-right: -10px;
+}
+
+.lineBackground:after {
+    content: "";
+    height: 100%;
+    grid-area: 1 / 6 / 2 / 9;
+    border-left: 1px solid var(--grey-light);
+    margin-left: -10px;
+}
+
+
+.smallTitle {
+  grid-area: 1 / 6 / 2 / 8;
+}
+
+@media screen and (max-width: 1024px) {
+  .lineBackground {
+    display: none;
+  }
 }
