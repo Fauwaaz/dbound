@@ -68,7 +68,7 @@ const OurWorkAnimation = () => {
                     start: "center center",
                     end: "+=100%",
                     scrub: 1.5,
-                    markers: true,
+                    markers: false,
                 }
             });
 
