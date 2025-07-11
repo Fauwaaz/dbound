@@ -67,7 +67,7 @@ const OurWorkAnimation = () => {
                     trigger: containerRef.current,
                     start: "center center",
                     end: "+=100%",
-                    scrub: 1.5,
+                    scrub: 2,
                     markers: false,
                 }
             });
@@ -76,7 +76,7 @@ const OurWorkAnimation = () => {
                 scrollTrigger: {
                     trigger: '.box',
                     start: 'top',
-                    end: '+=100%',
+                    end: '+=200%',
                     scrub: true,
                     pin: true,
                     markers: false,
@@ -88,42 +88,42 @@ const OurWorkAnimation = () => {
                 rotation: 0,
                 scale: 1,
                 duration: 1,
-                ease: "power2.out"
+                ease: "power3.out"
             }, 0.05)
                 .to(ourLetters[2], { // 'r' (from 'our')
                     y: 0,
                     rotation: 0,
                     scale: 1,
-                    duration: 1,
-                    ease: "power2.out"
+                    duration: 3,
+                    ease: "power3.out"
                 }, 0.1)
                 .to(workLetters[0], { // 'w'
                     y: 40,
                     rotation: 0,
                     scale: 1,
-                    duration: 1,
-                    ease: "power2.out"
+                    duration: 3,
+                    ease: "power3.out"
                 }, 0.2)
                 .to(workLetters[1], { // 'o'
                     y: 40,
                     rotation: 0,
                     scale: 1,
-                    duration: 1,
-                    ease: "power2.out"
+                    duration: 3,
+                    ease: "power3.out"
                 }, 0.3)
                 .to(workLetters[2], { // 'r'
                     y: 40,
                     rotation: 0,
                     scale: 1,
-                    duration: 1,
-                    ease: "power2.out"
+                    duration: 3,
+                    ease: "power3.out"
                 }, 0.4)
                 .to(workLetters[3], { // 'k'
                     y: 40,
                     rotation: 0,
                     scale: 1,
-                    duration: 1,
-                    ease: "power2.out"
+                    duration: 3,
+                    ease: "power3.out"
                 }, 0.5);
 
         }, containerRef);
@@ -132,14 +132,14 @@ const OurWorkAnimation = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className='relative h-screen'>
-            <div className="h-screen flex flex-col items-center justify-evenly relative overflow-hidden box z-3">
-                <div className='gridContainer'>
-                    <p className="smallTitle text-xl"><strong>Our clients —</strong> are entrepreneurs, community change-makers &amp; corporate brands tackling complexity.</p>
+        <div ref={containerRef} className='relative h-screen mt-[150px]'>
+            <div className="h-screen flex flex-col items-center justify-center relative overflow-hidden box z-3">
+                <div className='gridContainer absolute top-[50px] -z-10'>
+                    <p className="smallTitle text-xl text-zinc-700"><strong>Our clients —</strong> are entrepreneurs, community change-makers &amp; corporate brands tackling complexity.</p>
                 </div>
                 <div
                     ref={titleRef}
-                    className="text-6xl md:text-8xl lg:text-[250px] font-bold tracking-wider select-none uppercase Our_Work_Title "
+                    className="text-6xl md:text-8xl lg:text-[220px] font-bold select-none uppercase roboto-condensed tracking-tigh Our_Work_Title "
                     style={{
                         fontFamily: 'system-ui, -apple-system, sans-serif',
                         lineHeight: '1'

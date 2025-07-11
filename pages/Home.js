@@ -42,7 +42,6 @@ const Home = () => {
                 </div>
             </section>
 
-
             <section className="relative h-[500px]">
                 <div className='flex flex-col gap-5 pb-[60px] px-5 lg:flex-row'>
                     <motion.div
@@ -159,12 +158,69 @@ const Home = () => {
                 </div>
             </section>
 
-
             <section className='Our_Work_mob block lg:hidden'>
                 <CardStackAnimation />
+            </section>
+
+            <section className='h-screen hidden lg:block'></section>
+            <section className='h-screen hidden lg:block'></section>
+
+            <section className='community-section'>
+                <div className='gridContainer'>
+                    <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Community & <br /> Health</h2>
+                    <p className='smallTitle text-lg text-gray-500 mt-[50px]'>We create work shaped by today's most pressing challenges launching brands, programs, campaigns, and apps in collaboration with changemakers across government, councils, and the not-for-profit sector.</p>
+                </div>
+
+                <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
+                    <div className='community-a1 h-[650px] relative'>
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full h-full object-cover"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/10/03044811/SMM-Case-Study-00-Thumbnail-3-Compressed.mp4" type="video/mp4" />
+                        </video>
+                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                            Campaigns
+                        </span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>South Mumbai Market</strong> — Campaign for South Mumbai Market going plastic-free.</p>
+                    </div>
+                    <div className='community-a2 relative'>
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full h-full object-cover"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/10/27035623/HEM_Video-Thumbnail-Compressed.mp4" type="video/mp4" />
+                        </video>
+                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                            Motion Graphics
+                        </span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Health Matters </strong> — Amplifying the voice of advocacy.</p>
+                    </div>
+                    <div className='community-a3 relative'>
+                        <Image
+                            src="https://yourcreative.com.au/_next/image?url=https%3A%2F%2Fcdn.yourcreative.com.au%2Fwp-content%2Fuploads%2F2025%2F07%2F06031324%2FThumbnail-Image.jpg&w=1080&q=75"
+                            alt="Community Image"
+                            width={800}
+                            height={600}
+                            unoptimized
+                            quality={100}
+                            className="rounded-2xl w-full object-cover"
+                        />
+                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                            Strategy
+                        </span> 
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.</p>
+                    </div>
+                </div>
             </section>
         </>
     )
 }
 
-export default Home
+export default Home 
