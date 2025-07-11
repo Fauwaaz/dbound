@@ -23,7 +23,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #f8f7f5;
   --foreground: #171717;
   --grey-light: #e8e8e6;
 }
@@ -102,6 +102,31 @@ body {
 .community-a3 {
   grid-area: 1 / 6 / 2 / 9;
 }
+
+.science-a1 {
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.science-a2 {
+  grid-area: 1 / 4 / 2 / 9;
+}
+
+.cta-1{
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.cta-2 {
+  grid-area: 1 / 5 / 2 / 9;
+}
+
+.footer-1{
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.footer-3 {
+  grid-area: 1 / 6 / 2 / 9; 
+}
+
 @media screen and (max-width: 1024px) {
   .lineBackground {
     display: none;

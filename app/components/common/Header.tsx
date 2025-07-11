@@ -5,7 +5,7 @@ import { FiInstagram, FiLinkedin } from "react-icons/fi"
 
 const Header = () => {
   return (
-    <header className="px-9 py-4 w-[100%] fixed flex justify-between z-100">
+    <header className="px-6 py-4 w-[100%] fixed flex justify-between z-100">
       <div>
         <Image
           width={120}

@@ -2,14 +2,15 @@
 
 import { useState } from 'react'
 import styles from '@/styles/HeroSection.module.css'
-import { motion } from "framer-motion"
+import { hover, motion } from "framer-motion"
 import Link from 'next/link';
 import Image from 'next/image';
 import OurWorkAnimation from '@/app/components/OurWork';
 import CardStackAnimation from '@/app/components/CardStackAnimation';
+import CtaBeforeFooter from '@/app/components/CtaBeforeFooter';
 
 const Home = () => {
-    const [hovered, setHovered] = useState('left'); // Initialize with 'left' active
+    const [hovered, setHovered] = useState('left'); 
 
     return (
         <>
@@ -166,13 +167,31 @@ const Home = () => {
             <section className='h-screen hidden lg:block'></section>
 
             <section className='community-section'>
-                <div className='gridContainer'>
+                <motion.div
+                    onScroll={(e) => {
+                        const scrollTop = e.currentTarget.scrollTop;
+                        const scrollHeight = e.currentTarget.scrollHeight;
+                        const clientHeight = e.currentTarget.clientHeight;
+                        const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                        const scale = 1 + (scrollPercentage / 100) * 0.2; // Scale from 1 to 1.2 based on scroll percentage
+                        e.currentTarget.style.transform = `scale(${scale})`;
+                    }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                    className='gridContainer'
+                >
                     <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Community & <br /> Health</h2>
                     <p className='smallTitle text-lg text-gray-500 mt-[50px]'>We create work shaped by today's most pressing challenges launching brands, programs, campaigns, and apps in collaboration with changemakers across government, councils, and the not-for-profit sector.</p>
-                </div>
+                </motion.div>
 
                 <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
-                    <div className='community-a1 h-[650px] relative'>
+                    <motion.div className='community-a1 h-[650px] relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
                         <video
                             autoPlay
                             loop
@@ -182,12 +201,32 @@ const Home = () => {
                         >
                             <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/10/03044811/SMM-Case-Study-00-Thumbnail-3-Compressed.mp4" type="video/mp4" />
                         </video>
-                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
                             Campaigns
-                        </span>
+                        </motion.span>
                         <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>South Mumbai Market</strong> — Campaign for South Mumbai Market going plastic-free.</p>
-                    </div>
-                    <div className='community-a2 relative'>
+                    </motion.div>
+                    <motion.div className='community-a2 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
                         <video
                             autoPlay
                             loop
@@ -197,13 +236,45 @@ const Home = () => {
                         >
                             <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/10/27035623/HEM_Video-Thumbnail-Compressed.mp4" type="video/mp4" />
                         </video>
-                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
                             Motion Graphics
-                        </span>
+                        </motion.span>
                         <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Health Matters </strong> — Amplifying the voice of advocacy.</p>
-                    </div>
-                    <div className='community-a3 relative'>
+                    </motion.div>
+                    <motion.div className='community-a3 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
                         <Image
+                            variants={{
+                                initial: {
+                                    scale: 1,
+                                },
+                                hover: {
+                                    scale: 0.5,
+                                     transition: {
+                                        duration: 0.3,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
                             src="https://yourcreative.com.au/_next/image?url=https%3A%2F%2Fcdn.yourcreative.com.au%2Fwp-content%2Fuploads%2F2025%2F07%2F06031324%2FThumbnail-Image.jpg&w=1080&q=75"
                             alt="Community Image"
                             width={800}
@@ -212,13 +283,119 @@ const Home = () => {
                             quality={100}
                             className="rounded-2xl w-full object-cover"
                         />
-                        <span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold'>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
                             Strategy
-                        </span> 
+                        </motion.span>
                         <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.</p>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
+
+            <section className='sience-section mt-[150px]'>
+                <div className='gridContainer'>
+                    <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Science & <br /> Innovation</h2>
+                    <p className='smallTitle text-lg text-gray-500 mt-[50px]'>We tackle complex projects that demand thoughtful communication design—from AI and innovation initiatives to GPU cloud computing, carbon reduction, circular economy solutions, and biotech.</p>
+                </div>
+
+                <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
+                    <motion.div
+                        className='science-a1 relative cursor-pointer'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <Image
+                            src="https://yourcreative.com.au/_next/image?url=https%3A%2F%2Fyc24.yourcreative.com.au%2Fwp-content%2Fuploads%2F2023%2F07%2FColabs_Hero-Image2-1536x907.jpg&w=1080&q=75"
+                            alt="Community Image"
+                            width={800}
+                            height={600}
+                            unoptimized
+                            quality={100}
+                            className="rounded-2xl w-full object-cover"
+                        />
+
+                        <motion.span
+                            className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Strategy
+                        </motion.span>
+
+                        <p className='text-lg mt-4 text-gray-600'>
+                            <strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className='science-a2 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full h-full object-cover shadow-sm"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/11/13052037/SMC_Case-Study_00-1.mp4" type="video/mp4" />
+                        </video>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Web Design & Development
+                        </motion.span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Sustainable Metal Cloud </strong> — Amplifying the voice of advocacy.</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <CtaBeforeFooter />
         </>
     )
 }
