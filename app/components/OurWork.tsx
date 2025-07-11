@@ -27,35 +27,35 @@ const OurWorkAnimation = () => {
             });
 
             gsap.set(ourLetters[2], { // 'r'
-                y: 120,
+                y: 150,
                 rotation: 0,
                 scale: 1.1,
                 transformOrigin: "center center"
             });
 
             gsap.set(workLetters[0], { // 'w'
-                y: 150,
+                y: 650,
                 rotation: 0,
                 scale: 1.3,
                 transformOrigin: "center center"
             });
 
             gsap.set(workLetters[1], { // 'o'
-                y: 200,
+                y: 700,
                 rotation: 0,
                 scale: 1.4,
                 transformOrigin: "center center"
             });
 
             gsap.set(workLetters[2], { // 'r'
-                y: 250,
+                y: 750,
                 rotation: 0,
                 scale: 1.5,
                 transformOrigin: "center center"
             });
 
             gsap.set(workLetters[3], { // 'k'
-                y: 300,
+                y: 800,
                 rotation: 0,
                 scale: 1.6,
                 transformOrigin: "center center"
@@ -65,10 +65,10 @@ const OurWorkAnimation = () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top center",
-                    end: "bottom center",
+                    start: "center center",
+                    end: "+=100%",
                     scrub: 1.5,
-                    markers: false,
+                    markers: true,
                 }
             });
 
