@@ -15,7 +15,7 @@ export default function BlurButton({ href = '#', label = 'Click Me' }) {
       onMouseLeave={() => setIsHovered(false)}
       className="relative inline-flex items-center justify-center px-7 py-2 rounded-full border border-gray-500 bg-white/20 backdrop-blur-sm transition-colors duration-300 text-gray-700 hover:bg-gray-600 hover:text-white no-underline"
     >
-      <motion.span className="relative uppercase z-10 text-sm"
+      <motion.span className="relative uppercase z-10 text-sm roboto-condensed"
        animate={isHovered ? { x: -5} : {x: 0} } 
       >{label}</motion.span>
 
