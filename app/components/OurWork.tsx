@@ -141,7 +141,6 @@ const OurWorkAnimation = () => {
                     ref={titleRef}
                     className="text-6xl md:text-8xl lg:text-[220px] font-bold select-none uppercase roboto-condensed tracking-tigh Our_Work_Title "
                     style={{
-                        fontFamily: 'system-ui, -apple-system, sans-serif',
                         lineHeight: '1'
                     }}
                 >

@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('/fonts/RobotoCondensed-Medium.ttf') format('truetype');
+}
+
 @layer utilities {
   .font-satisfy {
     font-family: 'Satisfy', cursive;
@@ -90,24 +95,20 @@ body {
   grid-area: 1 / 1 / 2 / 9;
 }
 
-.community-a1 {
+.grid-a1 {
   grid-area: 1 / 1 / 2 / 4;
 }
 
 
-.community-a2 {
+.grid-a2 {
   grid-area: 1 / 4 / 2 / 6;
 }
 
-.community-a3 {
+.grid-a3 {
   grid-area: 1 / 6 / 2 / 9;
 }
 
-.science-a1 {
-  grid-area: 1 / 1 / 2 / 4;
-}
-
-.science-a2 {
+.grid-a4 {
   grid-area: 1 / 4 / 2 / 9;
 }
 

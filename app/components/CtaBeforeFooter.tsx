@@ -2,7 +2,7 @@ import React from 'react'
 
 const CtaBeforeFooter = () => {
     return (
-        <section className='mt-[150px] pb-[50px]'>
+        <section className='pb-[50px]'>
             <div className='gridContainer'>
                 <div className='flex flex-col text-left justify-center py-20 cta-1'>
                     <h2 className='text-2xl md:text-7xl font-bold mb-4'>Ready to Elevate Your Brand?</h2>

@@ -8,9 +8,10 @@ import Image from 'next/image';
 import OurWorkAnimation from '@/app/components/OurWork';
 import CardStackAnimation from '@/app/components/CardStackAnimation';
 import CtaBeforeFooter from '@/app/components/CtaBeforeFooter';
+import TextHoverAnimation, { AnimatedText } from '@/app/components/textAnimation';
 
 const Home = () => {
-    const [hovered, setHovered] = useState('left'); 
+    const [hovered, setHovered] = useState('left');
 
     return (
         <>
@@ -18,9 +19,7 @@ const Home = () => {
                 <video autoPlay loop muted playsInline className={styles.videoBackground}>
                     <source src="/V1-Draft.mp4" type="video/mp4" />
                 </video>
-
-                {/* Gradient overlay at bottom */}
-                <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-t from-white to-transparent z-10"></div>
+                <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-t from-[#f8f7f5] to-transparent z-10"></div>
 
                 <motion.div className='absolute top-50 z-20'
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -188,7 +187,7 @@ const Home = () => {
                 </motion.div>
 
                 <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
-                    <motion.div className='community-a1 h-[650px] relative'
+                    <motion.div className='grid-a1 h-[650px] relative'
                         whileHover="hover"
                         initial="initial"
                     >
@@ -223,7 +222,7 @@ const Home = () => {
                         </motion.span>
                         <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>South Mumbai Market</strong> — Campaign for South Mumbai Market going plastic-free.</p>
                     </motion.div>
-                    <motion.div className='community-a2 relative'
+                    <motion.div className='grid-a2 relative'
                         whileHover="hover"
                         initial="initial"
                     >
@@ -258,7 +257,7 @@ const Home = () => {
                         </motion.span>
                         <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Health Matters </strong> — Amplifying the voice of advocacy.</p>
                     </motion.div>
-                    <motion.div className='community-a3 relative'
+                    <motion.div className='grid-a3 relative'
                         whileHover="hover"
                         initial="initial"
                     >
@@ -269,7 +268,7 @@ const Home = () => {
                                 },
                                 hover: {
                                     scale: 0.5,
-                                     transition: {
+                                    transition: {
                                         duration: 0.3,
                                         ease: "easeIn"
                                     }
@@ -308,7 +307,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='sience-section mt-[150px]'>
+            <section className='science-section mt-[150px]'>
                 <div className='gridContainer'>
                     <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Science & <br /> Innovation</h2>
                     <p className='smallTitle text-lg text-gray-500 mt-[50px]'>We tackle complex projects that demand thoughtful communication design—from AI and innovation initiatives to GPU cloud computing, carbon reduction, circular economy solutions, and biotech.</p>
@@ -316,7 +315,7 @@ const Home = () => {
 
                 <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
                     <motion.div
-                        className='science-a1 relative cursor-pointer'
+                        className='grid-a1 relative cursor-pointer'
                         whileHover="hover"
                         initial="initial"
                     >
@@ -357,7 +356,7 @@ const Home = () => {
                         </p>
                     </motion.div>
 
-                    <motion.div className='science-a2 relative'
+                    <motion.div className='grid-a4 relative'
                         whileHover="hover"
                         initial="initial"
                     >
@@ -395,6 +394,256 @@ const Home = () => {
                 </div>
             </section>
 
+            <section className='arts-section mt-[150px]'>
+                <motion.div
+                    onScroll={(e) => {
+                        const scrollTop = e.currentTarget.scrollTop;
+                        const scrollHeight = e.currentTarget.scrollHeight;
+                        const clientHeight = e.currentTarget.clientHeight;
+                        const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                        const scale = 1 + (scrollPercentage / 100) * 0.2; // Scale from 1 to 1.2 based on scroll percentage
+                        e.currentTarget.style.transform = `scale(${scale})`;
+                    }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                    className='gridContainer'
+                >
+                    <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Arts & <br /> Culture</h2>
+                    <p className='smallTitle text-lg text-gray-500 mt-[50px]'>Collaborating with institutions and programs to create brands and immersive experiences that elevate meaningful cultural narratives.</p>
+                </motion.div>
+
+                <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
+                    <motion.div className='grid-a1 h-[650px] relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full h-full object-cover"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2023/07/03054532/Yourcreative_PPT-feature-9.mp4" type="video/mp4" />
+                        </video>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Campaigns
+                        </motion.span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>South Mumbai Market</strong> — Campaign for South Mumbai Market going plastic-free.</p>
+                    </motion.div>
+                    <motion.div className='grid-a2 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <Image
+                            variants={{
+                                initial: {
+                                    scale: 1,
+                                },
+                                hover: {
+                                    scale: 0.5,
+                                    transition: {
+                                        duration: 0.3,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                            src="https://yourcreative.com.au/_next/image?url=https%3A%2F%2Fcdn.yourcreative.com.au%2Fwp-content%2Fuploads%2F2020%2F11%2F16115832%2FYourcreative_BHRAG_branding_catalogue_thumb-1536x933.jpg&w=1080&q=75"
+                            alt="Community Image"
+                            width={800}
+                            height={600}
+                            unoptimized
+                            quality={100}
+                            className="rounded-2xl w-full object-cover"
+                        />
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Strategy
+                        </motion.span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.</p>
+                    </motion.div>
+                    <motion.div className='grid-a3 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <Image
+                            variants={{
+                                initial: {
+                                    scale: 1,
+                                },
+                                hover: {
+                                    scale: 0.5,
+                                    transition: {
+                                        duration: 0.3,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                            src="https://yourcreative.com.au/_next/image?url=https%3A%2F%2Fyc24.yourcreative.com.au%2Fwp-content%2Fuploads%2F2024%2F11%2FNorthcote-Rise_casestudy-06.jpg&w=1080&q=75"
+                            alt="Community Image"
+                            width={800}
+                            height={600}
+                            unoptimized
+                            quality={100}
+                            className="rounded-2xl w-full object-cover"
+                        />
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Strategy
+                        </motion.span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className='science-section mt-[150px]'>
+                <div className='gridContainer'>
+                    <h2 className='text-8xl font-bold mb-4 roboto-condensed community-title'>Corporate <br /> Change</h2>
+                    <p className='smallTitle text-lg text-gray-500 mt-[50px]'>For forward-thinking corporations dismantling outdated systems: purpose-driven design, inclusive storytelling, and transformative internal branding.</p>
+                </div>
+
+                <div className='mt-4 flex flex-row items-center justify-center gridContainer'>
+                    <motion.div
+                        className='grid-a1 relative cursor-pointer'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full object-cover shadow-sm"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2024/11/27034455/Progress_0_Thumbnail-Video-1.mp4" type="video/mp4" />
+                        </video>
+
+                        <motion.span
+                            className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Strategy
+                        </motion.span>
+
+                        <p className='text-lg mt-4 text-gray-600'>
+                            <strong className='text-black'>Fresh Start</strong> — Co-designing a youth-led response to vaping prevention.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className='grid-a4 relative'
+                        whileHover="hover"
+                        initial="initial"
+                    >
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="rounded-2xl w-full h-full object-cover shadow-sm"
+                        >
+                            <source src="https://cdn.yourcreative.com.au/wp-content/uploads/2023/01/14010923/Medibank-Thumbnail_LR.mp4" type="video/mp4" />
+                        </video>
+                        <motion.span className='bg-white py-2 px-4 rounded-full absolute top-4 left-4 uppercase text-[12px] font-bold shadow-md'
+                            variants={{
+                                initial: {
+                                    opacity: 0,
+                                    x: -10,
+                                    scale: 1
+                                },
+                                hover: {
+                                    opacity: 1,
+                                    x: 0,
+                                    scale: 1,
+                                    transition: {
+                                        duration: 0.1,
+                                        ease: "easeIn"
+                                    }
+                                }
+                            }}
+                        >
+                            Web Design & Development
+                        </motion.span>
+                        <p className='text-lg mt-1 text-gray-600'><strong className='text-black'>Sustainable Metal Cloud </strong> — Amplifying the voice of advocacy.</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className=''>
+                <div className='h-screen flex flex-col items-center justify-center'>
+                    <AnimatedText text='CULTURE' className='text-9xl roboto-condensed font-bold tracking-tight text-gray-300 hover:text-green-800' link='/projects'/>
+                    <AnimatedText text='IMPACT' className='text-9xl roboto-condensed mt-[-20px] font-bold tracking-tight text-gray-300 hover:text-red-950' link='/services'/>
+                    <AnimatedText text='PEOPLE' className='text-9xl roboto-condensed mt-[-20px] font-bold tracking-tighte text-gray-300 hover:text-blue-800' link='/people'/>
+                    <AnimatedText text='INSIGHTS' className='text-9xl  roboto-condensed mt-[-20px] font-bold tracking-tight text-gray-300 hover:text-violet-500' link='/insights'/>
+                </div>
+            </section>
+            
             <CtaBeforeFooter />
         </>
     )

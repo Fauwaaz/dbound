@@ -44,7 +44,7 @@ const ResponsiveNavMenu = () => {
         className="fixed bottom-0 left-0 right-0 z-50 hidden lg:block"
       >
         <div className="mx-6 mb-6 flex justify-center">
-          <div className="bg-black/60 backdrop-blur-sm  rounded-full border border-white/20 shadow-2xl">
+          <div className="bg-black/60 backdrop-blur-sm rounded-full border border-white/20 shadow-2xl">
             <div className="flex items-center justify-around">
               {menuItems.map((item) => (             
                 <motion.div
@@ -68,7 +68,7 @@ const ResponsiveNavMenu = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.8 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-800 rounded-full"
+                        className="absolute inset-0 bg-black/80 rounded-full"
                       />
                     )}
                   </AnimatePresence>
